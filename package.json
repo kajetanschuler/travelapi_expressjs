@@ -1,0 +1,11 @@
+{
+  "name": "travelapi-express",
+  "version": "1.0.0",
+  "description": "A Node.js RESTful API to recommend places",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kajetan Schuler",
+  "license": "ISC"
+}
