@@ -26,4 +26,40 @@ City.getById = (cityId, result) => {
     });
 };
 
+City.getByName = (cityName, result) => {
+    sql.query(`SELECT * FROM city_data WHERE cityName = "${cityName}"`, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+            return;
+        }
+
+        if (res.length) {
+            console.log("Found city/cities: ", res);
+            result(err, res);
+            return
+        }
+
+        result({kind: "not_found"}, null);
+    });
+};
+
+City.getAll =  result => {
+    sql.query("SELECT cityId, cityName, countryCode FROM city_data", (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+            return;
+        }
+
+        if (res.length) {
+            console.log("Found city/cities: ", res);
+            result(err, res);
+            return
+        }
+
+        result({kind: "not_found"}, null);
+    });
+};
+
 module.exports = City;

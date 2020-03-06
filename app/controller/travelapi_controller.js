@@ -10,9 +10,39 @@ exports.findOne = (req, res) => {
           });
         } else {
           res.status(500).send({
-            message: "Error retrieving Customer with id " + req.params.cityId
+            message: "Error retrieving City with id " + req.params.cityId
           });
         }
       } else res.send(data);
     });
   };
+
+  // Find City by Name
+  exports.findName = (req, res) => {
+    City.getByName(req.params.cityName, (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `Not found City with name ${req.params.cityName}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "Error retrieving City with name " + req.params.cityName
+          });
+        }
+      } else res.send(data);
+    });
+  };
+
+  // Retrieve all Cities (Name, ID, CountryCode)
+  exports.findAll = (req, res) => {
+    City.getAll((err, data) => {
+      if (err)
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving cities."
+        });
+      else res.send(data);
+    });
+  };
+

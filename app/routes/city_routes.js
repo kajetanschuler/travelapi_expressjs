@@ -1,10 +1,13 @@
 module.exports = app => {
     const city = require('../controller/travelapi_controller.js');
 
+    // Find all cities and corresponding IDs
+    app.get("/cities", city.findAll);
+
     // Find City by ID
-    app.get("/city/:cityId", city.findOne);
+    app.get("/cities/:cityId", city.findOne);
 
     // Find City from Parameters
-    app.get("/recommendation");
+    app.get("/cities/name/:cityName", city.findName);
 
 }
