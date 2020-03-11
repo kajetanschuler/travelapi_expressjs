@@ -1,4 +1,4 @@
-const sql = require('./db.js')
+const sql = require('./db.js');
 
 // Contstructor for city
 const City = function(city) {
@@ -7,8 +7,13 @@ const City = function(city) {
     // mehr?
 };
 
+
 City.getById = (cityId, result) => {
-    sql.query(`SELECT * FROM city_data WHERE cityId = ${cityId}`, (err, res) => {
+    sql.query(`
+        SELECT * FROM city_data WHERE city_data.cityId = ${cityId}; 
+        SELECT city_data.cityId, weather_data.* FROM weather_data INNER JOIN city_data ON city_data.stationId = weather_data.stationId WHERE city_data.cityId = ${cityId};
+        SELECT city_data.cityId, country_data.* FROM country_data INNER JOIN city_data ON city_data.countryCode = country_data.countryCode WHERE city_data.cityId = ${cityId};
+        `, (err, res) => {
         if (err) {
             console.log("error: ". err);
             result(err, null);
@@ -16,8 +21,15 @@ City.getById = (cityId, result) => {
         }
 
         if (res.length) {
-            console.log("Found city: ", res[0]);
-            result(err, res[0]);
+            var key_city = "city_data";
+            var key_country = "country_data";
+            var key_weather = "weather_data";
+            var json = { };
+            json[key_city] = res[0];
+            json[key_weather] = res[1];
+            json[key_country] = res[2];
+            console.log("Found city: ", json);
+            result(err, json);
             return;
         }
 
