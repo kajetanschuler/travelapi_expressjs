@@ -6,8 +6,10 @@ var pool = mysql.createPool({
     host: db_config.HOST,
     user: db_config.USER,
     password: db_config.PASSWORD,
-    database: db_config.DB
-})
+    database: db_config.DB,
+    multipleStatements: true
+});
+
 pool.getConnection((err, connection) => {
     if (err) {
         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
