@@ -1,7 +1,6 @@
 module.exports = {
-    HOST: "134.103.212.46",
-    USER: "travelapi",
-    PASSWORD: "Travelapi2020!",
-    DB: "travelapi",
-    TEST: "svenjabrauchtnebrille"
+    HOST: "travelapidatabase.chuesgmxloap.eu-central-1.rds.amazonaws.com",
+    USER: "TravelApiMaster",
+    PASSWORD: "TravelApi2020",
+    DB: "TravelApiDB",
   };
