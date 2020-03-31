@@ -1,8 +1,8 @@
 {
   "service": {
-    "service": "express-app",
+    "service": "travelution",
     "serviceObject": {
-      "name": "express-app"
+      "name": "travelution"
     },
     "provider": {
       "stage": "dev",
@@ -73,7 +73,7 @@
           "AppLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/express-app-dev-app"
+              "LogGroupName": "/aws/lambda/travelution-dev-app"
             }
           },
           "IamRoleLambdaExecution": {
@@ -101,7 +101,7 @@
                     "Fn::Join": [
                       "-",
                       [
-                        "express-app-dev",
+                        "travelution-dev",
                         "lambda"
                       ]
                     ]
@@ -117,7 +117,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/express-app-dev*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/travelution-dev*:*"
                           }
                         ]
                       },
@@ -128,7 +128,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/express-app-dev*:*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/travelution-dev*:*:*"
                           }
                         ]
                       }
@@ -141,7 +141,7 @@
                 "Fn::Join": [
                   "-",
                   [
-                    "express-app-dev",
+                    "travelution-dev",
                     {
                       "Ref": "AWS::Region"
                     },
@@ -204,9 +204,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/express-app/dev/1585660334385-2020-03-31T13:12:14.385Z/express-app.zip"
+                "S3Key": "serverless/travelution/dev/1585663570660-2020-03-31T14:06:10.660Z/travelution.zip"
               },
-              "FunctionName": "express-app-dev-app",
+              "FunctionName": "travelution-dev-app",
               "Handler": "s_app.handler",
               "MemorySize": 1024,
               "Role": {
@@ -223,20 +223,20 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "AppLambdaVersionde8qDCFteklp5m9ttVURnKELF88pUr8uBdANyzSr2c": {
+          "AppLambdaVersionICYCWWH2rGFyftfAplWa6EGV84abGTEfO6Cn9GmM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "Pmq75K1muT3Ga2MOayte8x13ZgUdGLm+lWinOfM4KCE="
+              "CodeSha256": "NIyOmpkPit0oK3aCM1s9a3hHoJkJV6Co1AR3Aoj1nzg="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "dev-express-app",
+              "Name": "dev-travelution",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -349,7 +349,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1585660331028": {
+          "ApiGatewayDeployment1585663567206": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -402,7 +402,7 @@
           "ApiGatewayLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/api-gateway/express-app-dev"
+              "LogGroupName": "/aws/api-gateway/travelution-dev"
             }
           },
           "CustomApiGatewayAccountCloudWatchRole": {
@@ -443,7 +443,7 @@
                       "-",
                       [
                         "dev",
-                        "express-app",
+                        "travelution",
                         "custom-resources-lambda"
                       ]
                     ]
@@ -508,9 +508,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/express-app/dev/1585660334385-2020-03-31T13:12:14.385Z/custom-resources.zip"
+                "S3Key": "serverless/travelution/dev/1585663570660-2020-03-31T14:06:10.660Z/custom-resources.zip"
               },
-              "FunctionName": "express-app-dev-custom-resource-apigw-cw-role",
+              "FunctionName": "travelution-dev-custom-resource-apigw-cw-role",
               "Handler": "apiGatewayCloudWatchRole/handler.handler",
               "MemorySize": 1024,
               "Runtime": "nodejs12.x",
@@ -529,7 +529,7 @@
           "CloudWatchLogsSubscriptionFilterAppLogGroup": {
             "Type": "AWS::Logs::SubscriptionFilter",
             "Properties": {
-              "DestinationArn": "arn:aws:logs:eu-central-1:802587217904:destination:MHtpjMgFdbhjgxwN9q#bYDjHPKMsXT9LC4YF8#express-app#dev",
+              "DestinationArn": "arn:aws:logs:eu-central-1:802587217904:destination:MHtpjMgFdbhjgxwN9q#X3HWzVYt2Dpldn4qkd#travelution#dev",
               "FilterPattern": "?\"REPORT RequestId: \" ?\"SERVERLESS_ENTERPRISE\"",
               "LogGroupName": {
                 "Ref": "AppLogGroup"
@@ -539,7 +539,7 @@
           "CloudWatchLogsSubscriptionFilterApiGatewayLogGroup": {
             "Type": "AWS::Logs::SubscriptionFilter",
             "Properties": {
-              "DestinationArn": "arn:aws:logs:eu-central-1:802587217904:destination:MHtpjMgFdbhjgxwN9q#bYDjHPKMsXT9LC4YF8#express-app#dev",
+              "DestinationArn": "arn:aws:logs:eu-central-1:802587217904:destination:MHtpjMgFdbhjgxwN9q#X3HWzVYt2Dpldn4qkd#travelution#dev",
               "FilterPattern": "\"SLS_ACCESS_LOG\"",
               "LogGroupName": {
                 "Ref": "ApiGatewayLogGroup"
@@ -564,7 +564,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionde8qDCFteklp5m9ttVURnKELF88pUr8uBdANyzSr2c"
+              "Ref": "AppLambdaVersionICYCWWH2rGFyftfAplWa6EGV84abGTEfO6Cn9GmM"
             }
           },
           "ServiceEndpoint": {
@@ -678,27 +678,27 @@
             "http": "ANY {proxy+}"
           }
         ],
-        "name": "express-app-dev-app",
+        "name": "travelution-dev-app",
         "package": {},
         "memory": 1024,
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionde8qDCFteklp5m9ttVURnKELF88pUr8uBdANyzSr2c"
+        "versionLogicalId": "AppLambdaVersionICYCWWH2rGFyftfAplWa6EGV84abGTEfO6Cn9GmM"
       }
     },
     "serviceFilename": "serverless.yml",
-    "app": "my-first-app",
+    "app": "travelution",
     "org": "kajetanschuler",
     "layers": {},
     "isDashboardMonitoringPreconfigured": true,
     "isDashboardAppPreconfigured": true,
-    "appUid": "bYDjHPKMsXT9LC4YF8",
+    "appUid": "X3HWzVYt2Dpldn4qkd",
     "orgUid": "MHtpjMgFdbhjgxwN9q",
-    "artifact": "/Users/kajetanschuler/Development/travelapi_expressjs/.serverless/express-app.zip"
+    "artifact": "/Users/kajetanschuler/Development/travelapi_expressjs/.serverless/travelution.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/express-app/dev/1585660334385-2020-03-31T13:12:14.385Z",
-    "artifact": "express-app.zip"
+    "artifactDirectoryName": "serverless/travelution/dev/1585663570660-2020-03-31T14:06:10.660Z",
+    "artifact": "travelution.zip"
   }
 }

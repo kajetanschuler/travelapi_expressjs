@@ -1,7 +1,6 @@
-
 org: kajetanschuler
-
-service: express-app
+app: travelution
+service: travelution
 
 provider:
   name: aws
