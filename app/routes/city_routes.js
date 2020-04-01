@@ -10,7 +10,5 @@ module.exports = app => {
     // Find City from Parameters
     app.get("/cities/name/:cityName", city.findName);
 
-     // Find all regions
-     app.get("/regions", region.findAll);
 
 }
