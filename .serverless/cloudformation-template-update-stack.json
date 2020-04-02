@@ -59,7 +59,7 @@
     "AppLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/travelution-dev-app"
+        "LogGroupName": "/aws/lambda/discoveroo-api-dev-app"
       }
     },
     "IamRoleLambdaExecution": {
@@ -87,7 +87,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "travelution-dev",
+                  "discoveroo-api-dev",
                   "lambda"
                 ]
               ]
@@ -103,7 +103,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/travelution-dev*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/discoveroo-api-dev*:*"
                     }
                   ]
                 },
@@ -114,7 +114,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/travelution-dev*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/discoveroo-api-dev*:*:*"
                     }
                   ]
                 }
@@ -127,7 +127,7 @@
           "Fn::Join": [
             "-",
             [
-              "travelution-dev",
+              "discoveroo-api-dev",
               {
                 "Ref": "AWS::Region"
               },
@@ -151,7 +151,7 @@
               "Action": "sts:AssumeRole",
               "Condition": {
                 "StringEquals": {
-                  "sts:ExternalId": "ServerlessEnterprise-MHtpjMgFdbhjgxwN9q"
+                  "sts:ExternalId": "ServerlessEnterprise-w2shmRc2FFVNbZ9LwM"
                 }
               }
             }
@@ -190,9 +190,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/travelution/dev/1585663570660-2020-03-31T14:06:10.660Z/travelution.zip"
+          "S3Key": "serverless/discoveroo-api/dev/1585853497412-2020-04-02T18:51:37.412Z/discoveroo-api.zip"
         },
-        "FunctionName": "travelution-dev-app",
+        "FunctionName": "discoveroo-api-dev-app",
         "Handler": "s_app.handler",
         "MemorySize": 1024,
         "Role": {
@@ -209,20 +209,20 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "AppLambdaVersionICYCWWH2rGFyftfAplWa6EGV84abGTEfO6Cn9GmM": {
+    "AppLambdaVersion5dSloudbFt51CxEs8LELBfdFl2XBjs2CMDai2u5Rw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppLambdaFunction"
         },
-        "CodeSha256": "NIyOmpkPit0oK3aCM1s9a3hHoJkJV6Co1AR3Aoj1nzg="
+        "CodeSha256": "3oZXCNwOF281dzYHnM3M80ot85S19QutTEFeffZ02P0="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "dev-travelution",
+        "Name": "dev-discoveroo-api",
         "EndpointConfiguration": {
           "Types": [
             "EDGE"
@@ -335,7 +335,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1585663567206": {
+    "ApiGatewayDeployment1585853493838": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -388,7 +388,7 @@
     "ApiGatewayLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/api-gateway/travelution-dev"
+        "LogGroupName": "/aws/api-gateway/discoveroo-api-dev"
       }
     },
     "CustomApiGatewayAccountCloudWatchRole": {
@@ -429,7 +429,7 @@
                 "-",
                 [
                   "dev",
-                  "travelution",
+                  "discoveroo-api",
                   "custom-resources-lambda"
                 ]
               ]
@@ -494,9 +494,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/travelution/dev/1585663570660-2020-03-31T14:06:10.660Z/custom-resources.zip"
+          "S3Key": "serverless/discoveroo-api/dev/1585853497412-2020-04-02T18:51:37.412Z/custom-resources.zip"
         },
-        "FunctionName": "travelution-dev-custom-resource-apigw-cw-role",
+        "FunctionName": "discoveroo-api-dev-custom-resource-apigw-cw-role",
         "Handler": "apiGatewayCloudWatchRole/handler.handler",
         "MemorySize": 1024,
         "Runtime": "nodejs12.x",
@@ -515,7 +515,7 @@
     "CloudWatchLogsSubscriptionFilterAppLogGroup": {
       "Type": "AWS::Logs::SubscriptionFilter",
       "Properties": {
-        "DestinationArn": "arn:aws:logs:eu-central-1:802587217904:destination:MHtpjMgFdbhjgxwN9q#X3HWzVYt2Dpldn4qkd#travelution#dev",
+        "DestinationArn": "arn:aws:logs:eu-central-1:802587217904:destination:w2shmRc2FFVNbZ9LwM#BsZxfyZ4T7x2YdB1T9#discoveroo-api#dev",
         "FilterPattern": "?\"REPORT RequestId: \" ?\"SERVERLESS_ENTERPRISE\"",
         "LogGroupName": {
           "Ref": "AppLogGroup"
@@ -525,7 +525,7 @@
     "CloudWatchLogsSubscriptionFilterApiGatewayLogGroup": {
       "Type": "AWS::Logs::SubscriptionFilter",
       "Properties": {
-        "DestinationArn": "arn:aws:logs:eu-central-1:802587217904:destination:MHtpjMgFdbhjgxwN9q#X3HWzVYt2Dpldn4qkd#travelution#dev",
+        "DestinationArn": "arn:aws:logs:eu-central-1:802587217904:destination:w2shmRc2FFVNbZ9LwM#BsZxfyZ4T7x2YdB1T9#discoveroo-api#dev",
         "FilterPattern": "\"SLS_ACCESS_LOG\"",
         "LogGroupName": {
           "Ref": "ApiGatewayLogGroup"
@@ -550,7 +550,7 @@
     "AppLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppLambdaVersionICYCWWH2rGFyftfAplWa6EGV84abGTEfO6Cn9GmM"
+        "Ref": "AppLambdaVersion5dSloudbFt51CxEs8LELBfdFl2XBjs2CMDai2u5Rw"
       }
     },
     "ServiceEndpoint": {

@@ -1,6 +1,6 @@
-org: kajetanschuler
-app: travelution
-service: travelution
+org: discoverooapi
+app: discoveroo-api
+service: discoveroo-api
 
 provider:
   name: aws
