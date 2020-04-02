@@ -1,4 +1,4 @@
-const City = require('../models/travelapi_model.js');
+const City = require('../models/city_model.js');
 
 // Find City by ID
 exports.findOne = (req, res) => {
