@@ -49,7 +49,7 @@ City.getByName = (cityName, result) => {
         if (res.length) {
             console.log("Found city/cities: ", res);
             result(err, res);
-            return
+            return;
         }
 
         result({kind: "not_found"}, null);
@@ -67,7 +67,7 @@ City.getAll =  result => {
         if (res.length) {
             console.log("Found city/cities: ", res);
             result(err, res);
-            return
+            return;
         }
 
         result({kind: "not_found"}, null);
