@@ -6,7 +6,8 @@ module.exports = app => {
 
     // Find all regions in country
     
-    // Find all cities in country
+    // Find all cities in country by CountryCode
+    app.get("/api/v1/countries/:countryCode/cities", country.findCitiesInCountry);
 
     
 
