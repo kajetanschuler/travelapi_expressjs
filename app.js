@@ -21,9 +21,4 @@ app.get("/", (req, res) => {
 require("./app/routes/city_routes.js")(app);
 require("./app/routes/country_routes.js")(app);
 
-// set port to listen for requests
-app.listen(3000, () => {
-    console.log("Server is running on port 3000.");
-}); 
-
-//module.exports.handler = serverless(app);
+module.exports.handler = serverless(app);
