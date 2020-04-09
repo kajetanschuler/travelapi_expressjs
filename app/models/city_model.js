@@ -1,3 +1,5 @@
+// Created - 02.04.2020 - by Kajetan, Malik
+
 const sql = require('./db.js');
 
 // Contstructor for city

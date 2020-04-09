@@ -1,3 +1,5 @@
+// Created - 08.04.2020 - by Kajetan
+
 const Country = require('../models/country_model.js');
 
 // Find all countries

@@ -1,3 +1,5 @@
+// Created - 02.04.2020 - by Kajetan
+
 const City = require('../models/city_model.js');
 
 // Find City by ID

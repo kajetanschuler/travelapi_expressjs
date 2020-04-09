@@ -1,3 +1,5 @@
+// Created - 08.04.2020 - by Kajetan
+
 module.exports = app => {
     const country = require('../controller/country_controller.js');
 
@@ -11,7 +13,5 @@ module.exports = app => {
 
     // Find all cities in country by CountryName
     app.get("/api/v1/countries/name/:countryName/cities", country.findCitiesInCountryByName);
-
-    
 
 }

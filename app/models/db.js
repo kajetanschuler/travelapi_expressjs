@@ -1,3 +1,5 @@
+// Created - 02.04.2020 - by Kajetan
+
 const mysql = require('mysql')
 const db_config = require('../config/db_config.js');
 
