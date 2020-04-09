@@ -48,7 +48,26 @@ Country.getCitiesByCountryCode = (countryCode, result) => {
         if (res.length) {
             console.log("Found city/cities: ", res);
             result(err, res);
-            return
+            return;
+        }
+
+        result({kind: "not_found"}, null);
+    });
+};
+
+// Function that returns all cities for given CountryName
+Country.getCitiesByCountryName = (countryName, result) => {
+    sql.query(`SELECT cityId, cityName FROM city_data INNER JOIN country_data ON city_data.countryCode = country_data.countryCode WHERE country_data.countryName = "${countryName}"`, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+            return;
+        }
+
+        if (res.length) {
+            console.log("Found city/cities: ", res);
+            result(err, res)
+            return;
         }
 
         result({kind: "not_found"}, null);
