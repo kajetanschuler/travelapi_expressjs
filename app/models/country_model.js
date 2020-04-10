@@ -26,6 +26,25 @@ Country.getAll = result => {
     });
 };
 
+// Function that returns details for one country for given CountryCode
+Country.getCountryDetails = (countryCode, result) => {
+    sql.query(`SELECT * FROM country_data WHERE countryCode = "${countryCode}" OR countryName = "${countryCode}"`, (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+            return;
+        }
+
+        if (res.length) {
+            console.log("Found country: ", res);
+            result(err, res);
+            return;
+        }
+
+        result({kind: "not_found"}, null);
+    });
+};
+
 // Function that return regions of country specified with the countryCode
 Country.getRegionsByCountryCode = result => {
     sql.query();

@@ -19,6 +19,23 @@ exports.findAll = (req, res) => {
     });
 };
 
+// Find one country by countryCode or countryName
+exports.findCountry = (req, res) => {
+    Country.getCountryDetails(req.params.countryCode, (err, data) => {
+        if (err) {
+            if (err === "not_found") {
+                res.status(404).send({
+                    message: "Did not find country with code " + req.params.countryCode
+                });
+            } else {
+                res.status(500).send({
+                    message: "Error retrieving country with code " + req.params.countryCode
+                });
+            }
+        } else res.send(data);
+    });
+};
+
 // Find all regions in a country by countryCode
 
 // Find all regions in a country by countryName
