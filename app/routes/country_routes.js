@@ -13,6 +13,6 @@ module.exports = app => {
 
 
     // Find all cities in country by CountryCode or CountryName
-    app.get("/api/v1/countries/name/:country/cities", country.findCitiesInCountry);
+    app.get("/api/v1/countries/:country/cities", country.findCitiesInCountry);
 
 }
