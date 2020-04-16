@@ -10,11 +10,9 @@ module.exports = app => {
     app.get("/api/v1/countries/:countryCode", country.findCountry);
 
     // Find all regions in country
-    
-    // Find all cities in country by CountryCode
-    app.get("/api/v1/countries/:countryCode/cities", country.findCitiesInCountryByCode);
 
-    // Find all cities in country by CountryName
-    app.get("/api/v1/countries/name/:countryName/cities", country.findCitiesInCountryByName);
+
+    // Find all cities in country by CountryCode or CountryName
+    app.get("/api/v1/countries/:country/cities", country.findCitiesInCountry);
 
 }
