@@ -13,3 +13,7 @@ functions:
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
+  getCities:
+    handler: app.handler
+    events:
+      - http: 'GET /cities/{proxy+}'
