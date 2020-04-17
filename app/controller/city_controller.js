@@ -1,4 +1,6 @@
-const City = require('../models/travelapi_model.js');
+// Created - 02.04.2020 - by Kajetan
+
+const City = require('../models/city_model.js');
 
 // Find City by ID
 exports.findOne = (req, res) => {
@@ -39,8 +41,7 @@ exports.findOne = (req, res) => {
     City.getAll((err, data) => {
       if (err)
         res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving cities."
+          message: "Some error occurred while retrieving cities."
         });
       else res.send(data);
     });
