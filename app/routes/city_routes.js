@@ -4,12 +4,12 @@ module.exports = app => {
     const city = require('../controller/city_controller.js');
 
     // Find all cities and corresponding IDs
-    app.get("/cities", city.findAll);
+    app.get("/api/v1/cities", city.findAll);
 
     // Find City by ID
-    app.get("/cities/:cityId", city.findOne);
+    app.get("/api/v1/cities/:cityId", city.findOne);
 
     // Find City from Parameters
-    app.get("/cities/name/:cityName", city.findName);
+    app.get("/api/v1/cities/name/:cityName", city.findName);
 
 }
