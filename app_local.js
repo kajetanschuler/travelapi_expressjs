@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
 require("./app/routes/city_routes.js")(app);
 require("./app/routes/country_routes.js")(app);
 require("./app/routes/weather_routes.js")(app);
+require("./app/routes/swagger_routes.js")(app);
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
