@@ -1,3 +1,5 @@
+# Created by Kajetan
+
 org: discoverooapi
 app: discoveroo-api
 service: discoveroo-api
@@ -16,4 +18,16 @@ functions:
   getCities:
     handler: app.handler
     events:
-      - http: 'GET /cities/{proxy+}'
+      - http: 'GET /api/v1/cities/{proxy+}'
+  getCountries:
+    handler: app.handler
+    events:
+      - http: 'GET /api/v1/countries/{proxy+}'
+  getRegions:
+    handler: app.handler
+    events:
+      - http: 'GET /api/v1/regions/{proxy+}'
+  getWeather:
+    handler: app.handler
+    events:
+      - http: 'GET /api/v1/weather/{proxy+}'
