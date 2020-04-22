@@ -3,12 +3,14 @@
 const serverless = require('serverless-http');
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors");
+//const cors = require("cors");
+const allowCrossDomain = require("./app/middleware/cors.js");
 
 const app = express();
 
 // Enable CORS for all Endpoints
-app.use(cors());
+//app.use(cors());
+app.use(allowCrossDomain);
 
 // parse requests of content type: application/json
 app.use(bodyParser.json());

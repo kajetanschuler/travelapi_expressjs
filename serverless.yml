@@ -13,10 +13,3 @@ functions:
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
-  getCities:
-    handler: app.handler
-    events:
-      - http:
-          path: /api/v1/cities
-          method: get
-          cors: true
