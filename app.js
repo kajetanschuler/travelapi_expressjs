@@ -8,14 +8,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-app.use(function (req, res) {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader('Access-Control-Allow-Methods', '*');
-    res.setHeader("Access-Control-Allow-Headers", "*");
-    res.end();
-  });
-
-/*   module.exports.handler = function(event, context, callback) {
+module.exports.handler = function(event, context, callback) {
 
     callback(null, {
         statusCode: '200',
@@ -30,7 +23,7 @@ app.use(function (req, res) {
         }
     });
 
-} */
+}
 // Enable CORS for all Endpoints
 //app.use(cors());
 //app.use(allowCrossDomain);
