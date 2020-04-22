@@ -19,15 +19,19 @@ functions:
     handler: app.handler
     events:
       - http: 'GET /api/v1/cities/{proxy+}'
+        cors: true
   getCountries:
     handler: app.handler
     events:
       - http: 'GET /api/v1/countries/{proxy+}'
+        cors: true
   getRegions:
     handler: app.handler
     events:
       - http: 'GET /api/v1/regions/{proxy+}'
+        cors: true
   getWeather:
     handler: app.handler
     events:
       - http: 'GET /api/v1/weather/{proxy+}'
+        cors: true
