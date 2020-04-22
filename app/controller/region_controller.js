@@ -4,8 +4,8 @@ const Region = require("../models/region_model.js");
 
 
 //find all region
-exports.findAll = (req, res) => {
-    Region.getAll((err, data) => {
+exports.findAllRegions = (req, res) => {
+    Region.getAllRegions((err, data) => {
       if (err) {
         if (err.kind == "not found") {
         res.status(500).send({

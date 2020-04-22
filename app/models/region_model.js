@@ -3,13 +3,13 @@ const sql = require("./db.js");
 
 // constructor for region
 const Region = function(region) {
-  this.regionName = region.regionName;
-  this.regionCode = region.regionCode;
+  this.regionName = Region.regionName;
+  this.regionCode = Region.regionCode;
   this.region = Region.region;
 };
 
 //find all region 
-Region.getAll = result => {
+Region.getAllRegions = result => {
   sql.query("SELECT regionCode, regionName, countryCode FROM city_data", (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -27,8 +27,8 @@ Region.getAll = result => {
 };
 
 // Find details for one region by regionCode or regionName
-Region.getCitiesInCountry = resut => {
-  sql.query(""  , (err, res) => {
+Region.getRegionDetails = resut => {
+  sql.query('SELECT * FROM city_data WHERE regionCode = "${country}" OR regionNameName = "${country}"`, (err, res) => "${region}" ', (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null,err);
