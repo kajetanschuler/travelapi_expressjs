@@ -20,5 +20,6 @@ app.get("/", (req, res) => {
 // Include the routes
 require("./app/routes/city_routes.js")(app);
 require("./app/routes/country_routes.js")(app);
+require("./app/routes/weather_routes")(app);
 
 module.exports.handler = serverless(app);
